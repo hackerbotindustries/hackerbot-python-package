@@ -1,7 +1,7 @@
 
-# Hackerbot Lib
+# Hackerbot Python Package
 
-Hackerbot Lib (`hackerbot_lib`) is a project that includes modules for controlling and managing the Hackerbot system.
+Hackerbot python package (`hackerbot-python-package`) is a project that includes modules for controlling and managing the Hackerbot system.
 
 ## Installation
 
@@ -10,33 +10,33 @@ Follow these steps to clone the repository and set up the required dependencies.
 ### 1. Clone the Repository
 Use SSH to clone the repository:
 ```bash
-https://github.com/hackerbotindustries/hackerbot-lib.git
+https://github.com/hackerbotindustries/hackerbot-python-package.git
 ```
-This will create a directory named `hackerbot_lib` and download all necessary files.
+This will create a directory named `hackerbot-python-package` and download all necessary files.
 
 ### 2. Navigate to the Modules Directory
 Move into the `hackerbot_modules` directory:
 ```bash
-cd hackerbot-lib/hackerbot_modules/
+cd hackerbot-python-package/
 ```
 
 ### 3. Install Dependencies
-Install the `hackerbot-helper` package using `pip`:
+Install the `hackerbot` package using `pip`:
 ```bash
 pip install .
 ```
 This will install the package locally for your Python environment.
 
 ## Usage
-Once installed, you can import `hackerbot_helper` in your Python scripts:
+Once installed, you can import `hackerbot` in your Python scripts:
 ```python
-import hackerbot_helper
+import hackerbot
 ```
 
 ### 4. Testing
 To run the unit tests run:
 ```bash
-cd hackerbot_modules/test
+cd tests/unit_tests
 pytest
 ```
 

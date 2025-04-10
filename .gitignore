@@ -1,7 +1,7 @@
-hackerbot_modules/build/
-hackerbot_modules/dist/
-hackerbot_modules/hackerbot_helper/.egg-info/
-hackerbot_modules/hackerbot_helper/*.pyc
-hackerbot_modules/hackerbot_helper/*.pyo
-hackerbot_modules/hackerbot_helper/*.log
-hackerbot_modules/hackerbot_helper/__pycache__/
+build/
+src/hackerbot.egg-info
+src/hackerbot/__pycache__/
+src/hackerbot/arm/__pycache__/
+src/hackerbot/base/__pycache__/
+src/hackerbot/head/__pycache__/
+src/hackerbot/utils/__pycache__/

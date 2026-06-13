@@ -269,9 +269,11 @@ class Base():
 
             try:
                 with stream:
-                    for audio_bytes in voice.synthesize_stream_raw(text, speaker_id=speaker_id):
+                    from piper import SynthesisConfig
+                    config = SynthesisConfig(speaker_id=speaker_id)
+                    for chunk in voice.synthesize(text, config):
                         try:
-                            int_data = np.frombuffer(audio_bytes, dtype=np.int16)
+                            int_data = chunk.audio_int16_array
                             stream.write(int_data)
                         except Exception as e:
                             self._controller.log_error(f"Error writing audio data to stream: {e}")

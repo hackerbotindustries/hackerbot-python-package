@@ -141,7 +141,8 @@ class Maps():
     def _calculate_position_offset(self):
         x_offset = self._goal_x - self._x
         y_offset = self._goal_y - self._y
-        angle_offset = (self._goal_angle - self._angle) // 180
+        # true division of the heading error wrapped to [-180, 180), so 0.1 means 18 deg either side
+        angle_offset = ((self._goal_angle - self._angle + 180) % 360 - 180) / 180
         # print("x_offset: {0}, y_offset: {1}, angle_offset: {2}".format(x_offset, y_offset, angle_offset))
         if max(abs(x_offset), abs(y_offset), abs(angle_offset)) < 0.1:
             self._goto_completed = True

@@ -148,6 +148,36 @@ class TestHackerbotMaps(unittest.TestCase):
 
         self.assertFalse(self.maps._goto_completed)
 
+    def test_calculate_position_offset_heading_just_above_goal(self):
+        self.maps._x = self.maps._goal_x = 1.0
+        self.maps._y = self.maps._goal_y = 0.0
+        self.maps._angle = 90.5
+        self.maps._goal_angle = 90
+
+        self.maps._calculate_position_offset()
+
+        self.assertTrue(self.maps._goto_completed)
+
+    def test_calculate_position_offset_heading_far_below_goal(self):
+        self.maps._x = self.maps._goal_x = 1.0
+        self.maps._y = self.maps._goal_y = 0.0
+        self.maps._angle = 0
+        self.maps._goal_angle = 90
+
+        self.maps._calculate_position_offset()
+
+        self.assertFalse(self.maps._goto_completed)
+
+    def test_calculate_position_offset_heading_wraps_around(self):
+        self.maps._x = self.maps._goal_x = 1.0
+        self.maps._y = self.maps._goal_y = 0.0
+        self.maps._angle = 359
+        self.maps._goal_angle = 1
+
+        self.maps._calculate_position_offset()
+
+        self.assertTrue(self.maps._goto_completed)
+
     @patch("time.sleep", return_value=None)
     def test_wait_until_reach_pose_works(self, _):
         self.maps.position = MagicMock()
